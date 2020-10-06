@@ -44,6 +44,29 @@ const Admin = () => {
     event.preventDefault();
   };
 
+  const handleRefreshButton = () => {
+    try {
+      fetch("/admin/refresh", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+        }),
+      })
+        .then((res) => res.json())
+        .then((val) =>
+          val.message
+            ? (setResMsg(val.message), setAuthValid(false))
+            : (localStorage.setItem("accesToken", val.token),
+              setAuthValid(true))
+        );
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("accesToken");
     token && token !== "" ? setAuthValid(true) : setAuthValid(false);
@@ -102,6 +125,9 @@ const Admin = () => {
       <br />
       <br />
       <EditPortfolio />
+      <article>
+        <button onClick={() => handleRefreshButton()}>refresh token</button>
+      </article>
     </section>
   );
 };

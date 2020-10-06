@@ -369,7 +369,7 @@ app.post("/admin/login", async (req, res) => {
           ? //generate and return jwt token which expires in an hour
             jwt.sign(
               {
-                //exp: Math.floor(Date.now() / 1000) + 60 * 60,
+                exp: Math.floor(Date.now() / 1000) + 60 * 60,
                 username: username,
               },
               "secretkey",
@@ -380,6 +380,23 @@ app.post("/admin/login", async (req, res) => {
           : res.json({ message: "incorrect password" });
       }))
     : res.json({ message: "username " + username + " doesn't exist" });
+});
+
+app.post("/admin/refresh", async (req, res) => {
+  let username = req.body.username;
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    //check authdata for exp date
+    jwt.sign(
+      {
+        exp: Math.floor(Date.now() / 1000) + 60 * 60,
+        username: username,
+      },
+      "secretkey",
+      (err, token) => {
+        res.json({ token });
+      }
+    );
+  });
 });
 
 //redirects all invalid paths to the index page
