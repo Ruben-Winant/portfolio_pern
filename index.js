@@ -4,10 +4,15 @@ const cors = require("cors");
 const pool = require("./database");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(cors());
 app.use(express.json());
+process.env.NODE_ENV === "production"
+  ? app.use(express.static(path.join(__dirname, "client/build")))
+  : null;
 
 const verifyToken = (req, res, next) => {
   let bearertoken = req.headers["authorization"];
@@ -377,6 +382,6 @@ app.post("/admin/login", async (req, res) => {
 });
 
 //SERVER
-app.listen(5000, () => {
-  console.log("server has started on port 5000");
+app.listen(PORT, () => {
+  console.log("server has started on port " + PORT);
 });
