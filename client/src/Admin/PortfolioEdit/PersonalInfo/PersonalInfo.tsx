@@ -113,101 +113,97 @@ const PersonalInfo = () => {
 
   return (
     <article>
-      {userDataLoaded ? (
-        <form>
-          <div className="pi-input" onClick={() => handleSubmit()}>
-            <h2>Personal info</h2>
-            <span>
-              Update <i style={{ fontSize: 15 }} className="fa fa-refresh" />
-            </span>
-          </div>
-          <div className="pi-outer">
-            <div className="pi-inner">
-              <div className="pi-input">
-                <label>First name</label>
-                <input
-                  type="text"
-                  name="firstname"
-                  value={firstname}
-                  onChange={(text) => handleFirstnameChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>Last name</label>
-                <input
-                  type="text"
-                  name="lastname"
-                  value={lastname}
-                  onChange={(text) => handleLastnameChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>Role</label>
-                <input
-                  type="text"
-                  name="role"
-                  value={role}
-                  onChange={(text) => handleRoleChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>About</label>
-                <textarea
-                  name="about"
-                  value={about}
-                  onChange={(text) => handleAboutChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>Extra</label>
-                <textarea
-                  name="extra"
-                  value={extra}
-                  onChange={(text) => handleExtraChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>Github</label>
-                <input
-                  type="url"
-                  name="github"
-                  value={github}
-                  onChange={(text) => handleGithubChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>Twitter</label>
-                <input
-                  type="url"
-                  name="twitter"
-                  value={twitter}
-                  onChange={(text) => handleTwitterChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>LinkedIn</label>
-                <input
-                  type="url"
-                  name="linkedin"
-                  value={linkedin}
-                  onChange={(text) => handleLinkedinChange(text)}
-                />
-              </div>
-              <div className="pi-input">
-                <label>Dribbble</label>
-                <input
-                  type="url"
-                  name="dribbble"
-                  value={dribbble}
-                  onChange={(text) => handleDribbbleChange(text)}
-                />
-              </div>
+      <form>
+        <div className="pi-input" onClick={() => handleSubmit()}>
+          <h2>Personal info</h2>
+          <span>
+            Update <i style={{ fontSize: 15 }} className="fa fa-refresh" />
+          </span>
+        </div>
+        <div className="pi-outer">
+          <div className="pi-inner">
+            <div className="pi-input">
+              <label>First name</label>
+              <input
+                type="text"
+                name="firstname"
+                value={firstname}
+                onChange={(text) => handleFirstnameChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>Last name</label>
+              <input
+                type="text"
+                name="lastname"
+                value={lastname}
+                onChange={(text) => handleLastnameChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>Role</label>
+              <input
+                type="text"
+                name="role"
+                value={role}
+                onChange={(text) => handleRoleChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>About</label>
+              <textarea
+                name="about"
+                value={about}
+                onChange={(text) => handleAboutChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>Extra</label>
+              <textarea
+                name="extra"
+                value={extra}
+                onChange={(text) => handleExtraChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>Github</label>
+              <input
+                type="url"
+                name="github"
+                value={github}
+                onChange={(text) => handleGithubChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>Twitter</label>
+              <input
+                type="url"
+                name="twitter"
+                value={twitter}
+                onChange={(text) => handleTwitterChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>LinkedIn</label>
+              <input
+                type="url"
+                name="linkedin"
+                value={linkedin}
+                onChange={(text) => handleLinkedinChange(text)}
+              />
+            </div>
+            <div className="pi-input">
+              <label>Dribbble</label>
+              <input
+                type="url"
+                name="dribbble"
+                value={dribbble}
+                onChange={(text) => handleDribbbleChange(text)}
+              />
             </div>
           </div>
-        </form>
-      ) : (
-        <h2>Loading data</h2>
-      )}
+        </div>
+      </form>
     </article>
   );
 };

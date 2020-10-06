@@ -236,7 +236,7 @@ const EditPortfolio = () => {
     return projectsList;
   };
 
-  return dataLoaded ? (
+  return (
     <article>
       <form>
         <div
@@ -294,8 +294,6 @@ const EditPortfolio = () => {
         {genProjectsEditList()}
       </form>
     </article>
-  ) : (
-    <div></div>
   );
 };
 

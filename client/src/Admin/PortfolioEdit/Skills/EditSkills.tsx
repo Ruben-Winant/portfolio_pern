@@ -398,7 +398,7 @@ const EditSkills = () => {
     }
   };
 
-  return dataLoaded ? (
+  return (
     <article>
       <form>
         <div className="skill-cat-input" onClick={() => handleSubmit()}>
@@ -432,8 +432,6 @@ const EditSkills = () => {
         </div>
       </form>
     </article>
-  ) : (
-    <div></div>
   );
 };
 
