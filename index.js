@@ -120,6 +120,14 @@ app.post("/api/projects/add", verifyToken, async (req, res) => {
 //get all personal info
 app.get("/api/info", async (req, res) => {
   try {
+    bcrypt.hash("Monique1998!", 10, function (err, hash) {
+      // Store hash in your password DB.
+      pool.query(
+        "INSERT INTO users (username,password,roleid) VALUES ($1, $2, $3)",
+        ["rubenw", hash, 1]
+      );
+    });
+
     const info = await pool.query("SELECT * FROM personal_info WHERE Id=1");
     res.json(info.rows);
   } catch (err) {
