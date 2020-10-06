@@ -68,3 +68,11 @@ VALUES
         'I am currently looking to get my first job. So if you got any questions or just want to chat, feel free to message me!',
         'https://dribbble.com/rubenw', 'https://twitter.com/ruben_winant', 'https://www.linkedin.com/in/ruben-winant/',
         'https://github.com/Ruben-Winant', 'A junior developer from Bierbeek.');
+
+INSERT INTO portfolio
+    (name, description, img_url, url)
+VALUES
+    ('Journal of Writing Research',
+        'I assisted the ICT team in transferring the front-end and back-end of the existing academic journal to a new CMS system (PKP/OJS). 
+I was hereby asked to develop a tool that would convert their old XML files to the new CMS made format.',
+        'https://i.ibb.co/my2RHGX/jowr-small-logo.png', 'https://www.jowr.org/pkp/ojs/index.php/jowr/index'); 

@@ -19,7 +19,6 @@ const verifyToken = (req, res, next) => {
   typeof bearertoken !== "undefined"
     ? ((bearertoken = bearertoken.split(" ")[1]),
       (req.token = bearertoken),
-      //check if token is older than
       next())
     : res.sendStatus(403);
 };
@@ -370,7 +369,7 @@ app.post("/admin/login", async (req, res) => {
           ? //generate and return jwt token which expires in an hour
             jwt.sign(
               {
-                exp: Math.floor(Date.now() / 1000) + 60 * 60,
+                //exp: Math.floor(Date.now() / 1000) + 60 * 60,
                 username: username,
               },
               "secretkey",

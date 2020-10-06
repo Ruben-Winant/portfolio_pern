@@ -13,7 +13,7 @@ const UserForm = () => {
   //fetch role data
   useEffect(() => {
     try {
-      fetch(" /api/roles")
+      fetch("/api/roles")
         .then((response) => response.json())
         .then((data) => {
           setRoles(data);
