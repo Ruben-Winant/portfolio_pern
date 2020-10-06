@@ -347,13 +347,6 @@ app.post("/admin/login", async (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
 
-  bcrypt.hash("Monique1998!", 10, function (err, hash) {
-    // Store hash in your password DB.
-    pool.query(
-      "INSERT INTO users (username,password,roleid) VALUES ($1, $2, $3)",
-      ["rubenw", hash, 1]
-    );
-  });
   //check if user exists
   const founduser = await pool.query(
     "SELECT username FROM users WHERE username = $1",
