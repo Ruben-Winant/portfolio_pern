@@ -21,7 +21,7 @@ const Footer = () => {
   //fetch data
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/api/info")
+      fetch("/api/info")
         .then((response) => response.json())
         .then((data) => {
           setUserInfo(data[0]);

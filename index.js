@@ -381,6 +381,11 @@ app.post("/admin/login", async (req, res) => {
     : res.json({ message: "username " + username + " doesn't exist" });
 });
 
+//redirects all invalid paths to the index page
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+
 //SERVER
 app.listen(PORT, () => {
   console.log("server has started on port " + PORT);

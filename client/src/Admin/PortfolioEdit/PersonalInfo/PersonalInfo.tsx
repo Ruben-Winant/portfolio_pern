@@ -21,7 +21,7 @@ const PersonalInfo = () => {
   //fetch personal data
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/api/info")
+      fetch("/api/info")
         .then((response) => response.json())
         .then((data) => {
           //personal info
@@ -87,7 +87,7 @@ const PersonalInfo = () => {
       }
 
       //update personal stuff
-      fetch("http://localhost:5000/admin/info/" + id, {
+      fetch("/admin/info/" + id, {
         method: "PUT",
         headers: myHeaders,
         body: JSON.stringify({

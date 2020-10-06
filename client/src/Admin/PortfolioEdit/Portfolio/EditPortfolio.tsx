@@ -20,7 +20,7 @@ const EditPortfolio = () => {
   //fetch data
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/api/projects")
+      fetch("/api/projects")
         .then((response) => response.json())
         .then((data) => {
           setProjects(data);
@@ -64,7 +64,7 @@ const EditPortfolio = () => {
       }
 
       //update personal stuff
-      fetch("http://localhost:5000/api/projects/add", {
+      fetch("/api/projects/add", {
         method: "POST",
         headers: myHeaders,
         body: JSON.stringify({
@@ -131,7 +131,7 @@ const EditPortfolio = () => {
       }
 
       //update personal stuff
-      fetch("http://localhost:5000/api/projects/delete", {
+      fetch("/api/projects/delete", {
         method: "DELETE",
         headers: myHeaders,
         body: JSON.stringify({
@@ -158,7 +158,7 @@ const EditPortfolio = () => {
 
       //update projects
       projects.forEach((project) =>
-        fetch("http://localhost:5000/api/projects/update", {
+        fetch("/api/projects/update", {
           method: "PUT",
           headers: myHeaders,
           body: JSON.stringify({

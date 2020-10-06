@@ -13,7 +13,7 @@ const UserForm = () => {
   //fetch role data
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/api/roles")
+      fetch(" /api/roles")
         .then((response) => response.json())
         .then((data) => {
           setRoles(data);
@@ -59,7 +59,7 @@ const UserForm = () => {
         myHeaders.append("authorization", "Bearer " + accessToken.toString());
       }
 
-      fetch("http://localhost:5000/admin/users/add", {
+      fetch("/admin/users/add", {
         method: "POST",
         headers: myHeaders,
         body: JSON.stringify({

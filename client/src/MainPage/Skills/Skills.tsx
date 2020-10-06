@@ -11,7 +11,7 @@ const Skills = () => {
   //fetch categories
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/api/skills/categories")
+      fetch("/api/skills/categories")
         .then((response) => response.json())
         .then((data) => {
           let cats: skill_categories[] = JSON.parse(JSON.stringify(data));
@@ -27,7 +27,7 @@ const Skills = () => {
   //fetch skills
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/api/skills")
+      fetch("/api/skills")
         .then((response) => response.json())
         .then((data) => {
           let skills: skill[] = JSON.parse(JSON.stringify(data));

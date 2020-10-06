@@ -20,7 +20,7 @@ const Admin = () => {
 
   const handleSubmit = (event: FormEvent) => {
     try {
-      fetch("http://localhost:5000/admin/login", {
+      fetch("/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
