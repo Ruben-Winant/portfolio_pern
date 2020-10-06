@@ -1,0 +1,125 @@
+/* NAVIGATION */
+.menu {
+    margin-top: 25px;
+    max-width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navList {
+    display: flex;
+    list-style-type: none;
+}
+
+.navItem {
+    text-decoration: none;
+    color: black;
+    font-size: large;
+    margin-left: 25px;
+}
+
+.navMain {
+    font-size: 40px;
+    color: black;
+}
+
+.mobileMenuButton {
+    display: none;
+    position: fixed;
+    right: 35px;
+    top: 35px;
+}
+
+.rectangle {
+    height: 4px;
+    width: 30px;
+    border-radius: 25px;
+    background-color: #1B242F;
+    margin-bottom: 4px;
+}
+
+/* MOBILE MENU POP UP */
+.popUpMenu {
+    display: none;
+    min-height: 100%;
+    background-color: white;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.navListPopUp {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navItemPopUp {
+    display: block;
+    text-decoration: none;
+    color: #1B242F;
+    font-size: xx-large;
+    font-weight: 700;
+    margin-bottom: 20%;
+    margin-top: 20%;
+}
+
+/* should cover most smartphones */
+@media (max-width: 767.98px) {
+    .mobileMenuButton {
+        display: block;
+    }
+
+    /* hide default menu */
+    .menu {
+        display: none;
+    }
+}
+
+/* everything between */
+@media (min-width: 768px) {
+    .mobileMenuButton {
+        display: block;
+    }
+
+    /* Mobile menu */
+    .mobileMenu {
+        display: block;
+    }
+
+    /* hide default menu */
+    .menu {
+        display: none;
+    }
+}
+
+/* small computers */
+@media (min-width: 1050px) {
+
+    .mobileMenuButton {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        max-width: 60%;
+    }
+
+    /* Mobile menu */
+    .mobileMenu {
+        display: none;
+    }
+}
+
+/* biggest screens */
+@media (min-width: 1441px) {
+    .menu {
+        max-width: 60%;
+    }
+}

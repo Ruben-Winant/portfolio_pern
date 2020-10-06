@@ -1,0 +1,69 @@
+footer {
+    text-align: center;
+    padding: 20px 0px 20px 0px;
+    background-color: #1B242F;
+    color: white;
+    padding: 70px;
+}
+
+.footerContent {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ANIMATIONS */
+.dribbble:hover {
+    -webkit-animation: bounce 1s infinite;
+    animation: bounce 1s infinite;
+}
+
+.linkedin:hover {
+    -webkit-animation: heartBeat 1s infinite;
+    animation: heartBeat 1s infinite;
+}
+
+.twitter:hover {
+    -webkit-animation: swing 1s infinite;
+    animation: swing 1s infinite;
+}
+
+.github:hover {
+    -webkit-animation: rubberBand 1s infinite;
+    animation: rubberBand 1s infinite;
+}
+
+.mediaCell {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mediaCell:hover {
+    cursor: pointer;
+}
+
+.mediaName {
+
+    color: white;
+    text-decoration: none;
+}
+
+/* should cover most smartphones */
+@media (max-width: 767.98px) {
+
+    /* center button */
+    .mediaCell {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    /* content row => column */
+    .footerContent {
+        flex-direction: column;
+    }
+}

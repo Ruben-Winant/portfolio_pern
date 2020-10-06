@@ -1,0 +1,87 @@
+.skill-cat-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.skill-cat-input ul {
+    list-style: none;
+    width: 60%;
+    padding-inline-start: 0px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+label {
+    height: 20px;
+}
+
+.skill-cat-li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-cat-li input {
+    height: 20px;
+    padding-left: 7px;
+    margin-right: 9px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    width: 100%;
+}
+
+.catSkillList li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.catSkillList input {
+    padding-left: 7px;
+    width: auto;
+    max-width: 35%;
+}
+
+.empty-skill-input,
+.empty-skill-input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.empty-skill-container {
+    width: 60%;
+}
+
+.empty-skill-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.empty-skill-input input {
+    padding-left: 7px;
+    width: 70%;
+}
+
+i {
+    cursor: pointer;
+}
+
+.skill-outer {
+    -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+.skill-inner {
+    padding: 20px 40px 20px 40px;
+    position: relative;
+}

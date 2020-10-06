@@ -1,0 +1,17 @@
+.contactContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+@media (max-width: 767.98px) {
+    .contactContainer {
+        flex-direction: column;
+
+    }
+
+    .contactButton {
+        align-self: center;
+        margin-top: 15px;
+    }
+}
