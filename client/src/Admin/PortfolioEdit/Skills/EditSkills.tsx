@@ -151,9 +151,7 @@ const EditSkills = () => {
         }),
       })
         .then((res) => res.json())
-        .then((val) =>
-          val.message ? (setResMsg(val.message), alert(resMsg)) : null
-        );
+        .then((val) => (val.message ? setResMsg(val.message) : null));
     } catch (error) {
       console.log(error.message);
     }
@@ -361,7 +359,7 @@ const EditSkills = () => {
 
       //update categories
       categories.forEach((uCat) =>
-        fetch("%PUBLIC_URL%/api/skills/categories/update", {
+        fetch("/api/skills/categories/update", {
           method: "PUT",
           headers: myHeaders,
           body: JSON.stringify({
@@ -377,7 +375,7 @@ const EditSkills = () => {
 
       //update skills
       skills.forEach((uSkill) =>
-        fetch("%PUBLIC_URL%ß/api/skills/update", {
+        fetch("/api/skills/update", {
           method: "PUT",
           headers: myHeaders,
           body: JSON.stringify({
