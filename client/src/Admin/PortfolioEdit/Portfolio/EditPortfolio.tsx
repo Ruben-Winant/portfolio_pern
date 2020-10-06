@@ -75,9 +75,7 @@ const EditPortfolio = () => {
         }),
       })
         .then((res) => res.json())
-        .then((val) =>
-          val.message ? (setResMsg(val.message), alert(resMsg)) : null
-        );
+        .then((val) => (val.message ? setResMsg(val.message) : null));
     } catch (error) {
       console.log(error.message);
     }

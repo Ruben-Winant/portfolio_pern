@@ -44,16 +44,16 @@ app.post("/admin/users/add", verifyToken, async (req, res) => {
         (res.setHeader("Content-Type", "application/json"),
         userCheck.rows.length > 0
           ? res.send({ message: "user already exists" })
-          : (res.send({
-              message: "user " + username + " created",
-              authData,
-            }),
-            bcrypt.hash(password, saltRounds, function (err, hash) {
+          : (bcrypt.hash(password, saltRounds, function (err, hash) {
               // Store hash in your password DB.
               pool.query(
                 "INSERT INTO users (username,password,roleid) VALUES ($1, $2, $3)",
                 [username, hash, roleid]
               );
+            }),
+            res.send({
+              message: "user " + username + " created",
+              authData,
             })));
   });
 });
@@ -65,14 +65,14 @@ app.post("/api/skills/categories/add", verifyToken, async (req, res) => {
   jwt.verify(req.token, "secretkey", (err, authData) => {
     err
       ? res.sendStatus(403)
-      : (res.json({
-          message: "categorie " + newCat + " created",
-          authData,
-        }),
-        pool.query(
+      : (pool.query(
           "INSERT INTO skill_categories (name) VALUES ($1) RETURNING *",
           [newCat]
-        ));
+        ),
+        res.json({
+          message: "categorie " + newCat + " created",
+          authData,
+        }));
   });
 });
 
@@ -86,14 +86,14 @@ app.post("/api/skills/add", verifyToken, async (req, res) => {
   jwt.verify(req.token, "secretkey", (err, authData) => {
     err
       ? res.sendStatus(403)
-      : (res.json({
-          message: "skill " + name + " added",
-          authData,
-        }),
-        pool.query(
+      : (pool.query(
           "INSERT INTO skill (name, icon_name, skill_level_id, cat_id) VALUES ($1, $2, $3, $4) RETURNING *",
           [name, icon_name, skill_level_id, cat_id]
-        ));
+        ),
+        res.json({
+          message: "skill " + name + " added",
+          authData,
+        }));
   });
 });
 
@@ -104,14 +104,14 @@ app.post("/api/projects/add", verifyToken, async (req, res) => {
   jwt.verify(req.token, "secretkey", (err, authData) => {
     err
       ? res.sendStatus(403)
-      : (res.json({
-          message: "project " + name + " added to portfolio",
-          authData,
-        }),
-        pool.query(
+      : (pool.query(
           "INSERT INTO portfolio(name, description, img_url, url) VALUES ($1, $2, $3, $4) RETURNING *",
           [name, description, img_url, url]
-        ));
+        ),
+        res.json({
+          message: "project " + name + " added to portfolio",
+          authData,
+        }));
   });
 
   window.location = "/";
