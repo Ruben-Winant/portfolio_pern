@@ -60,3 +60,11 @@ INSERT INTO users
     (username, roleid, password)
 VALUES
     ('rubenw', 1, '$2y$10$wWKewl/TQs.7ig6pKce.hu8gz04mwMYvMQ.TOENNR5HbtBtOaP3D.');
+
+INSERT INTO personal_info
+    (firstname, surname, about, extra, dribble, twitter, linkedin, github, role)
+VALUES
+    ('Ruben', 'Winant', 'I enjoy building websites and learning new stuff like app and game development and am motivated to do so.',
+        'I am currently looking to get my first job. So if you got any questions or just want to chat, feel free to message me!',
+        'https://dribbble.com/rubenw', 'https://twitter.com/ruben_winant', 'https://www.linkedin.com/in/ruben-winant/',
+        'https://github.com/Ruben-Winant', 'A junior developer from Bierbeek.');

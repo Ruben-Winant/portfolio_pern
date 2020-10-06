@@ -108,11 +108,13 @@ app.post("/api/projects/add", verifyToken, async (req, res) => {
           message: "project " + name + " added to portfolio",
           authData,
         }),
-        pool.query(
+        await pool.query(
           "INSERT INTO portfolio(name, description, img_url, url) VALUES ($1, $2, $3, $4) RETURNING *",
           [name, description, img_url, url]
         ));
   });
+
+  window.location = "/";
 });
 //#endregion
 
