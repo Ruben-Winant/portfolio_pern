@@ -153,7 +153,9 @@ app.get("/api/skills/categories", async (req, res) => {
 //get all skills
 app.get("/api/skills", async (req, res) => {
   try {
-    const info = await pool.query("SELECT * FROM skill");
+    const info = await pool.query(
+      "SELECT * FROM skill ORDER BY skill_level_id DESC"
+    );
     res.json(info.rows);
   } catch (err) {
     console.error(err.message);
