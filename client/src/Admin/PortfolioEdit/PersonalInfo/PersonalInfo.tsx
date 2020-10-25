@@ -104,7 +104,9 @@ const PersonalInfo = () => {
       })
         .then((res) => res.json())
         .then((val) =>
-          val.message ? (setResMsg(val.message), alert(resMsg)) : null
+          val.message
+            ? (setResMsg(val.message), window.location.reload())
+            : null
         );
     } catch (error) {
       console.log(error.message);

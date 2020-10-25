@@ -16,11 +16,17 @@ process.env.NODE_ENV === "production"
 
 const verifyToken = (req, res, next) => {
   let bearertoken = req.headers["authorization"];
-  typeof bearertoken !== "undefined"
-    ? ((bearertoken = bearertoken.split(" ")[1]),
-      (req.token = bearertoken),
-      next())
-    : res.sendStatus(403);
+  if (typeof bearertoken !== "undefined") {
+    bearertoken = bearertoken.split(" ")[1];
+    req.token = bearertoken;
+    //check if token is expired
+    //check on login if token is expired, set state isAuth false
+    jwt.decode(bearertoken)["exp"] < jwt.decode(bearertoken)["iat"]
+      ? res.sendStatus(403)
+      : next();
+  } else {
+    res.sendStatus(403);
+  }
 };
 
 //#region CREATE
@@ -101,19 +107,23 @@ app.post("/api/projects/add", verifyToken, async (req, res) => {
   let { name, description, img_url, url } = req.body;
 
   jwt.verify(req.token, "secretkey", (err, authData) => {
-    err
-      ? res.sendStatus(403)
-      : (pool.query(
+    if (err) {
+      res.sendStatus(403);
+    } else {
+      pool
+        .query(
           "INSERT INTO portfolio(name, description, img_url, url) VALUES ($1, $2, $3, $4) RETURNING *",
           [name, description, img_url, url]
-        ),
-        res.json({
-          message: "project " + name + " added to portfolio",
-          authData,
-        }));
+        )
+        .then((result) =>
+          res.json({
+            data: result.rows[0],
+            message: "project " + name + " added to portfolio.",
+            authData,
+          })
+        );
+    }
   });
-
-  window.location = "/";
 });
 //#endregion
 
@@ -131,7 +141,9 @@ app.get("/api/info", async (req, res) => {
 //get all skill categories
 app.get("/api/skills/categories", async (req, res) => {
   try {
-    const info = await pool.query("SELECT * FROM skill_categories");
+    const info = await pool.query(
+      "SELECT * FROM skill_categories ORDER BY name"
+    );
     res.json(info.rows);
   } catch (err) {
     console.error(err.message);
@@ -388,7 +400,8 @@ app.post("/admin/refresh", async (req, res) => {
     //check authdata for exp date
     jwt.sign(
       {
-        exp: Math.floor(Date.now() / 1000) + 60 * 60,
+        //12 hours valid token
+        exp: Math.floor(Date.now() / 1000) + 43200,
         username: username,
       },
       "secretkey",

@@ -75,7 +75,11 @@ const EditPortfolio = () => {
         }),
       })
         .then((res) => res.json())
-        .then((val) => (val.message ? setResMsg(val.message) : null));
+        .then((val) =>
+          val.message
+            ? (setResMsg(val.message), window.location.reload())
+            : null
+        );
     } catch (error) {
       console.log(error.message);
     }
@@ -138,7 +142,9 @@ const EditPortfolio = () => {
       })
         .then((res) => res.json())
         .then((val) =>
-          val.message ? (setResMsg(val.message), alert(resMsg)) : null
+          val.message
+            ? (setResMsg(val.message), window.location.reload())
+            : null
         );
     } catch (error) {
       console.log(error.message);
@@ -169,7 +175,9 @@ const EditPortfolio = () => {
         })
           .then((res) => res.json())
           .then((val) =>
-            val.message ? (setResMsg(val.message), alert(resMsg)) : null
+            val.message
+              ? (setResMsg(val.message), window.location.reload())
+              : null
           )
       );
     } catch (error) {

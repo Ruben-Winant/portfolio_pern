@@ -59,6 +59,7 @@ const EditSkills = () => {
   const handleAddCategorieChanged = (event: ChangeEvent<HTMLInputElement>) => {
     setNewCategorie(event.currentTarget.value);
   };
+
   const handleAddCategorieClick = () => {
     try {
       let accessToken = localStorage.getItem("accesToken");
@@ -79,7 +80,9 @@ const EditSkills = () => {
       })
         .then((res) => res.json())
         .then((val) =>
-          val.message ? (setResMsg(val.message), alert(resMsg)) : null
+          val.message
+            ? (setResMsg(val.message), window.location.reload())
+            : null
         );
     } catch (error) {
       console.log(error.message);
@@ -105,7 +108,9 @@ const EditSkills = () => {
       })
         .then((res) => res.json())
         .then((val) =>
-          val.message ? (setResMsg(val.message), alert(resMsg)) : null
+          val.message
+            ? (setResMsg(val.message), window.location.reload())
+            : null
         );
     } catch (error) {
       console.log(error.message);
@@ -151,12 +156,14 @@ const EditSkills = () => {
         }),
       })
         .then((res) => res.json())
-        .then((val) => (val.message ? setResMsg(val.message) : null));
+        .then((val) =>
+          val.message
+            ? (setResMsg(val.message), window.location.reload())
+            : null
+        );
     } catch (error) {
       console.log(error.message);
     }
-
-    event.preventDefault();
   };
 
   //crud skills
@@ -168,7 +175,7 @@ const EditSkills = () => {
     );
   };
   const handleSkillIconNameChanged = (event: ChangeEvent<HTMLInputElement>) => {
-    skills.forEach((skill) =>
+    skills.map((skill) =>
       skill.cat_id.toString() === event.currentTarget.name
         ? (skill.icon_name = event.currentTarget.value)
         : null
@@ -201,7 +208,9 @@ const EditSkills = () => {
       })
         .then((res) => res.json())
         .then((val) =>
-          val.message ? (setResMsg(val.message), alert(resMsg)) : null
+          val.message
+            ? (setResMsg(val.message), window.location.reload())
+            : null
         );
     } catch (error) {
       console.log(error.message);
@@ -368,9 +377,7 @@ const EditSkills = () => {
           }),
         })
           .then((res) => res.json())
-          .then((val) =>
-            val.message ? (setResMsg(val.message), alert(resMsg)) : null
-          )
+          .then((val) => (val.message ? setResMsg(val.message) : null))
       );
 
       //update skills
@@ -387,10 +394,10 @@ const EditSkills = () => {
           }),
         })
           .then((res) => res.json())
-          .then((val) =>
-            val.message ? (setResMsg(val.message), alert(resMsg)) : null
-          )
+          .then((val) => (val.message ? setResMsg(val.message) : null))
       );
+
+      window.location.reload();
     } catch (error) {
       console.log(error.message);
     }
