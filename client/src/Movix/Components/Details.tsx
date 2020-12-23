@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Details = () => {
+  const [showInfo, setShowInfo] = useState<boolean>(false);
+
   return (
     <div
       style={{
@@ -14,6 +16,61 @@ const Details = () => {
         marginTop: 180,
       }}
     >
+      {/* info popup */}
+      <div
+        style={{
+          width: 700,
+          height: 300,
+          backgroundColor: "#23838e",
+          borderRadius: 15,
+          display: showInfo ? "block" : "none",
+          position: "absolute",
+          zIndex: 50,
+        }}
+      >
+        <div
+          style={{
+            margin: 25,
+            color: "#FFFFFF",
+            marginTop: 0,
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h2>
+              <b>.apk info</b>
+            </h2>
+            <button
+              style={{
+                backgroundColor: "rgba(0,0,0,0)",
+                boxShadow: "0 0 0 0 rgba(0,0,0,0)",
+                fontSize: 30,
+              }}
+              onClick={() => setShowInfo(!showInfo)}
+            >
+              <b>X</b>
+            </button>
+          </div>
+          <p style={{}}>
+            Downloading this file on your device will install it there. It will
+            show you some warnings because it is not an official play store app
+            yet. To make sure the app is safe for use, u can always scan it on
+            the site below.
+          </p>
+          <a
+            style={{ color: "#FFFFFF" }}
+            href="https://www.virustotal.com/gui/"
+          >
+            https://www.virustotal.com/gui/
+          </a>
+          <p>Enjoy!</p>
+        </div>
+      </div>
       <article
         style={{
           color: "#FFFFFF",
@@ -73,6 +130,7 @@ const Details = () => {
               backgroundColor: "rgba(0,0,0,0)",
               boxShadow: "0px 0px 0px 0px rgba(0,0,0,0)",
             }}
+            onClick={() => setShowInfo(!showInfo)}
           >
             .apk info
           </button>

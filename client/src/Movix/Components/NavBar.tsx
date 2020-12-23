@@ -16,8 +16,8 @@ const NavBar = () => {
         </a>
         <ul className="navList">
           <li>
-            <a href="#about" className="navItem">
-              <b style={{ color: "#FFFFFF" }}>About</b>
+            <a href="https://github.com/Ruben-Winant/Movix" className="navItem">
+              <b style={{ color: "#FFFFFF" }}>Feedback</b>
             </a>
           </li>
         </ul>
