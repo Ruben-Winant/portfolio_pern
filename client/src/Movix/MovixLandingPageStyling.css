@@ -1,0 +1,174 @@
+.MovixLandingContainer{
+    background-color: #23838e;
+    display: flex;
+    flex-direction: column;
+}
+
+.MovixLandingContainer .App-header {
+    background-color: #363333; 
+}
+
+.author{
+    position: absolute;
+    bottom: 25px;
+    z-index: 5;
+    margin-left: 22%;
+    margin-right: 22%;
+}
+
+.author, .authorName{
+    color: #23838e
+}
+
+.authorName:hover {
+    text-decoration: underline;
+}
+
+.movixAboutContainer{
+    display: flex;
+    margin-top: 0px;
+    background-color: #23838e;
+    height: auto; 
+    align-items: center;
+    justify-content: center;
+}
+
+.movixAboutContent {
+    width: 55%
+}
+
+.movixFooter {
+    z-index: 10; 
+    position: sticky; 
+    bottom: 0px;
+}
+
+.MovixLandingContainer footer {
+    background-color: transparent;
+    text-align: unset;
+    padding: 0
+}
+
+.movixAboutContent h2 {
+    font-size: 3em;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.movixAboutContent details {
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+.movixAboutContent summary{
+    font-size: xx-large;
+}
+
+.movixAboutContent a {
+    color:#2AC6D8;
+}
+
+ /* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+    .movixAboutContent {
+        width: 65%
+    }
+
+    .movixAboutContent summary{
+        font-size: large;
+    }
+
+    .movixFooter {
+        z-index: 10; 
+        bottom: 0;
+        position: relative;
+    }
+
+    .author{
+        position: absolute;
+        bottom: 0px;
+        font-size: x-small;
+        z-index: 5;
+        margin-left: 17.5%;
+    }
+}
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+    .movixAboutContent {
+        width: 65%
+    }
+
+    .movixAboutContent summary{
+        font-size: x-large;
+    }
+
+    .movixFooter {
+        z-index: 10; 
+        bottom: 0;
+        position: relative;
+    }
+
+    .author{
+        position: absolute;
+        bottom: 0px;
+        font-size: small;
+        z-index: 5;
+        margin-left: 17.5%;
+    }
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    .MovixLandingContainer .App-header .menu {
+        max-width: 55%;
+        width: 55%;
+    }
+    .movixAboutContent {
+        width: 55%
+    }
+
+    .movixFooter {
+        z-index: 10; 
+        bottom: 0;
+        position: sticky;
+    }
+
+    .author{
+        position: absolute;
+        bottom: 0px;
+        font-size: small;
+        z-index: 5;
+        margin-left: 17.5%;
+    }
+ }
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+    .MovixLandingContainer .App-header .menu {
+        max-width: 45%;
+        width: 45%;
+    }
+
+    .movixAboutContent {
+        width: 45%
+    }
+
+    .movixFooter {
+        z-index: 10; 
+        bottom: 0;
+        position: sticky;
+    }
+
+    .author{
+        position: absolute;
+        bottom: 0px;
+        font-size: larger;
+        z-index: 5;
+        margin-left: 27.3%;
+    }
+
+    .movixAboutContent summary{
+        font-size: x-large;
+    }
+ } 

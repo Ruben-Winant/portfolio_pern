@@ -2,11 +2,8 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <header className="App-header" style={{ marginTop: 55, zIndex: 1 }}>
-      <nav
-        className="menu"
-        style={{ alignItems: "center", width: "55%", maxWidth: "55%" }}
-      >
+    <header className="App-header" style={{ paddingTop: 55, zIndex: 1 }}>
+      <nav className="menu" style={{ alignItems: "center" }}>
         <a href="#" className="navMain">
           <img
             style={{ width: 100 }}
@@ -16,8 +13,8 @@ const NavBar = () => {
         </a>
         <ul className="navList">
           <li>
-            <a href="https://github.com/Ruben-Winant/Movix" className="navItem">
-              <b style={{ color: "#FFFFFF" }}>Feedback</b>
+            <a href="#about" className="navItem">
+              <b style={{ color: "#FFFFFF" }}>About</b>
             </a>
           </li>
         </ul>

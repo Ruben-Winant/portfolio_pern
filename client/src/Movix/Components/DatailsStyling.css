@@ -1,0 +1,185 @@
+.detailsOuterContainer{
+    height: 60vh;
+    position: relative;
+    margin: 0px;
+    background-color: #363333;
+}
+
+.movixAbout{
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    width: 100%
+}
+
+.detailsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 55%;
+    z-index: 5;
+    margin: auto;
+    margin-top: 5vh;
+}
+
+.detailsContainer article {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0px;
+    z-index: 5;
+}
+
+.detailsContainer article h1 {
+    font-weight: 100;
+    font-size: 4em;
+}
+
+.detailsContainer article p {
+    font-size: 1.4em;
+    padding-top: 0px;
+    margin-top: 0px;
+    font-weight: 500;
+}
+
+.buttonRow {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.downloadButton {
+    width: 150px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    height: 50px;
+    background-color: #2AC6D8;
+    font-weight: bold;
+    box-shadow: 9px 9px 0px 0px #23838E;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.downloadButton:hover {
+    transform: scale(1.1);
+}
+
+.linkButton {
+    background-color: rgba(0,0,0,0);
+}
+
+.linkButton:hover {
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+}
+
+.mobileLogo {display: none;}
+
+
+ /* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+    .mobileLogo {
+        display: block;
+    }
+
+    .detailsOuterContainer{
+        height: auto;
+    }
+
+    .detailsContainer{
+        flex-direction: column;
+    }
+    .detailsContainer img{
+        margin: auto;
+        margin-top: 45px;
+    }
+
+    .downloadButton {
+        box-shadow: none
+    }
+
+    .buttonRow {
+        margin-top: 45px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .detailsContainer{
+        width: 65%;
+    }
+
+    .detailsContainer h1{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .detailsContainer article {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .sampleImage {
+        width: 150px; 
+        height: 180px;
+        z-index: 5;
+    }
+ }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .mobileLogo {
+        display: block;
+    }
+    .sampleImage {
+        width: 180px; 
+        height: 210px;
+        z-index: 5;
+    }
+
+    .detailsContainer {
+        max-width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .detailsContainer{
+        width: 65%;
+    }
+
+    .detailsContainer article {
+        max-width: 100%;
+    }
+  }
+
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    .mobileLogo {
+        display: none;
+    }
+
+    .detailsContainer{
+        width: 55%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .detailsContainer{
+        width: 45%;
+    }
+
+    .sampleImage {
+        width: 280px; 
+        height: 340px;
+        z-index: 5;
+    }
+
+    .detailsOuterContainer{
+        height: 60vh;
+        position: relative;
+        margin: 0px;
+        background-color: #363333;
+    }
+} 
