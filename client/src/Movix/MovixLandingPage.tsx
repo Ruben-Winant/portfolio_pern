@@ -37,7 +37,7 @@ const MovixLandingPage = () => {
             <summary>How does this app work?</summary>
             <p>
               Movix gathers data collected from{" "}
-              <a href="www.tmdb.com">The Movie Database</a> and uses it to
+              <Link to="www.tmdb.com">The Movie Database</Link> and uses it to
               display all the info you need onto easy to read cards that you can
               swipe through.
             </p>
@@ -55,9 +55,9 @@ const MovixLandingPage = () => {
               How can i report an error or submit a new feature?
             </summary>
             <p>
-              You can <Link to="/">go here</Link> and select either "feature" or
-              "error" and fill in the form as detailed as possible. I then will
-              use all this info to improve the app in later updates.
+              You can <a href="#errorForm">go here</a> and select either
+              "feature" or "error" and fill in the form as detailed as possible.
+              I then will use all this info to improve the app in later updates.
             </p>
           </details>
         </div>
