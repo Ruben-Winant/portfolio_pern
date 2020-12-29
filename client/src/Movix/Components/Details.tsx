@@ -24,6 +24,7 @@ const Details = () => {
             >
               Download .apk
             </Link>
+            <h6>Latest version: 001</h6>
           </div>
         </article>
         <img

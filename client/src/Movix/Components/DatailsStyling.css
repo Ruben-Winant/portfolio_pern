@@ -80,6 +80,12 @@
 
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
+    .buttonRow{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .mobileLogo {
         display: block;
     }
@@ -94,10 +100,6 @@
     .detailsContainer img{
         margin: auto;
         margin-top: 45px;
-    }
-
-    .downloadButton {
-        box-shadow: none
     }
 
     .buttonRow {
@@ -151,6 +153,11 @@
     .detailsContainer article {
         max-width: 100%;
     }
+
+    .buttonRow{
+        flex-direction: column;
+        justify-content: center;
+    }
   }
 
  /* Large devices (laptops/desktops, 992px and up) */
@@ -161,6 +168,11 @@
 
     .detailsContainer{
         width: 55%;
+    }
+
+    .buttonRow{
+        flex-direction: row;
+        justify-content: space-between;
     }
 }
 

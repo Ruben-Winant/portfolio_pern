@@ -1,14 +1,48 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import "./MovixLandingPageStyling.css";
 import { Link } from "react-router-dom";
 import Details from "./Components/Details";
 import NavBar from "./Components/NavBar";
 
 const MovixLandingPage = () => {
+  const [name, setName] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const onNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const onSubjectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSubject(e.target.value);
+  };
+
+  const onMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(e.target.value);
+  };
+
+  const submitRequest = async (e: any) => {
+    e.preventDefault();
+    await fetch("/movix/submitform", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ name, subject, message }),
+    }).then(async (res) => {
+      const resData = await res.json();
+      if (resData.status === "success") {
+        alert("Submission sent.");
+        //reset form
+      } else if (resData.status === "fail") {
+        alert("Submission failed to send.");
+      }
+    });
+  };
+
   return (
     <div className="MovixLandingContainer">
       <NavBar />
-
       <Details />
 
       <section className="movixAboutContainer">
@@ -37,9 +71,9 @@ const MovixLandingPage = () => {
             <summary>How does this app work?</summary>
             <p>
               Movix gathers data collected from{" "}
-              <Link to="www.tmdb.com">The Movie Database</Link> and uses it to
-              display all the info you need onto easy to read cards that you can
-              swipe through.
+              <a href="https://www.themoviedb.org/">The Movie Database</a> and
+              uses it to display all the info you need onto easy to read cards
+              that you can swipe through.
             </p>
           </details>
           <details>
@@ -61,6 +95,47 @@ const MovixLandingPage = () => {
             </p>
           </details>
         </div>
+      </section>
+
+      <section id="errorForm" className="movixFormContainer">
+        <h2>Submission form</h2>
+        <form className="movixForm">
+          <div className="form-row">
+            <input
+              name="name"
+              placeholder="Name"
+              type="text"
+              value={name}
+              onChange={(text) => onNameChange(text)}
+            />
+          </div>
+          <div className="form-row">
+            <select
+              name="subject"
+              value={subject}
+              onChange={(value) => onSubjectChange(value)}
+            >
+              <option value="error">I found an error.</option>
+              <option value="feature">I have an idea for a new feature!</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div className="form-row">
+            <label htmlFor="message">
+              Please try to describe the error/feature as detailed as possible.
+            </label>
+            <textarea
+              name="message"
+              value={message}
+              onChange={(text) => onMessageChange(text)}
+            />
+          </div>
+          <div className="form-button-row">
+            <button type={"submit"} onClick={(e) => submitRequest(e)}>
+              Submit
+            </button>
+          </div>
+        </form>
       </section>
 
       <footer className="movixFooter">

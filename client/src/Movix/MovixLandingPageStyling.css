@@ -68,6 +68,91 @@
     color:#2AC6D8;
 }
 
+.movixForm{
+    width: 45%;
+}
+
+.movixFormContainer h2 {
+    font-size: 3em;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.movixForm label{
+    color: #FFFFFF;
+}
+
+.movixFormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-row{
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.form-row select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #ddd;
+} 
+
+.form-row textarea {
+    border-color: #2AC6D8;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 7px 0px 7px 0px;
+    font-size: small;
+    border-width: 0px;
+    background-color: #2AC6D8;
+    border-radius: 5px;
+    display: block;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+.form-row input, .form-row select{
+    width: 100%;
+    padding: 7px 0px 7px 0px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: transparent;
+    border-color: #2AC6D8;
+    color: #FFFFFF;
+}
+
+.form-row input{
+    text-indent: 5px;
+}
+
+.form-button-row{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.form-button-row button {
+    width: 150px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    height: 50px;
+    background-color: #2AC6D8;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.form-button-row button:hover{
+    box-shadow: none;
+    transform: scale(1.1);
+}
+
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
     .movixAboutContent {
@@ -91,11 +176,15 @@
         z-index: 5;
         margin-left: 17.5%;
     }
+
+    .movixForm{
+        width: 65%;
+    }
 }
 
  /* Small devices (portrait tablets and large phones, 600px and up) */
  @media only screen and (min-width: 600px) {
-    .movixAboutContent {
+    .movixAboutContent, .movixForm {
         width: 65%
     }
 
@@ -120,7 +209,7 @@
  
  /* Large devices (laptops/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
-    .MovixLandingContainer .App-header .menu {
+    .MovixLandingContainer .App-header .menu, .movixForm {
         max-width: 55%;
         width: 55%;
     }
@@ -150,7 +239,7 @@
         width: 45%;
     }
 
-    .movixAboutContent {
+    .movixAboutContent, .movixForm {
         width: 45%
     }
 

@@ -357,6 +357,23 @@ app.delete("/api/projects/delete", verifyToken, async (req, res) => {
 
 //#endregion
 
+// MOVIX FORM POST
+app.post("/movix/submitform", async (req, res) => {
+  try {
+    let name = req.body.name;
+    let subject = req.body.subject;
+    let message = req.body.message;
+    console.log(name);
+    console.log(subject);
+    console.log(message);
+    return res.status;
+    //send mail
+    //retrun status to fe
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // LOGIN & JWT TOKEN GEN
 app.post("/admin/login", async (req, res) => {
   let username = req.body.username;
