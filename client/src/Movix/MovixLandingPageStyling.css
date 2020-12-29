@@ -153,6 +153,23 @@
     transform: scale(1.1);
 }
 
+.movixFormResult {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.movixFormResult span {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    font-size: medium;
+    width: 95%;
+    text-align: center;
+}
+
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
     .movixAboutContent {

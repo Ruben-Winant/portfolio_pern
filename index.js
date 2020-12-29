@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const path = require("path");
 const PORT = process.env.PORT || 5000;
+var nodemailer = require("nodemailer");
 
 //middleware
 app.use(cors());
@@ -360,15 +361,39 @@ app.delete("/api/projects/delete", verifyToken, async (req, res) => {
 // MOVIX FORM POST
 app.post("/movix/submitform", async (req, res) => {
   try {
-    let name = req.body.name;
+    let email = req.body.email;
     let subject = req.body.subject;
     let message = req.body.message;
-    console.log(name);
-    console.log(subject);
-    console.log(message);
-    return res.status;
-    //send mail
-    //retrun status to fe
+
+    if (email && subject && message) {
+      var mailOptions = {
+        from: email,
+        to: "movixsup@gmail.com",
+        subject: subject,
+        text:
+          "User " + email + " send in the following submission: \n" + message,
+      };
+
+      var transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: "movixsup@gmail.com",
+          pass: "Monique1998!!1998",
+        },
+      });
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          return res.json({
+            status: "success",
+          });
+        }
+      });
+    } else {
+      return res.json({ status: "failed" });
+    }
   } catch (error) {
     console.log(error);
   }

@@ -5,12 +5,15 @@ import Details from "./Components/Details";
 import NavBar from "./Components/NavBar";
 
 const MovixLandingPage = () => {
-  const [name, setName] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [result, setResult] = useState<string>("");
+  const [showResult, setShowResult] = useState<string>("none");
+  const [resBColor, setResBColor] = useState<string>("");
 
-  const onNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
+  const onEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
   };
 
   const onSubjectChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -28,14 +31,22 @@ const MovixLandingPage = () => {
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ name, subject, message }),
+      body: JSON.stringify({ email, subject, message }),
     }).then(async (res) => {
       const resData = await res.json();
       if (resData.status === "success") {
-        alert("Submission sent.");
+        setResult(
+          "Submission succesfully recieved! \nThank you for helping me to improve the app! (click to close)"
+        );
+        setResBColor("#3ec069");
+        setShowResult("flex");
         //reset form
-      } else if (resData.status === "fail") {
-        alert("Submission failed to send.");
+      } else if (resData.status === "failed") {
+        setResult(
+          "Submission failed to send. \nPlease check if all fields are filled in. (click to close)"
+        );
+        setResBColor("#be3030");
+        setShowResult("flex");
       }
     });
   };
@@ -102,11 +113,11 @@ const MovixLandingPage = () => {
         <form className="movixForm">
           <div className="form-row">
             <input
-              name="name"
-              placeholder="Name"
-              type="text"
-              value={name}
-              onChange={(text) => onNameChange(text)}
+              name="email"
+              placeholder="Email"
+              type="email"
+              value={email}
+              onChange={(text) => onEmailChange(text)}
             />
           </div>
           <div className="form-row">
@@ -130,6 +141,19 @@ const MovixLandingPage = () => {
               onChange={(text) => onMessageChange(text)}
             />
           </div>
+
+          <div
+            className="movixFormResult"
+            style={{ backgroundColor: resBColor, display: showResult }}
+            onClick={() => {
+              setShowResult("none");
+              setResBColor("#23838e");
+              setMessage("");
+            }}
+          >
+            <span>{result}</span>
+          </div>
+
           <div className="form-button-row">
             <button type={"submit"} onClick={(e) => submitRequest(e)}>
               Submit
