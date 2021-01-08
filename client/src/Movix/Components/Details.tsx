@@ -19,12 +19,12 @@ const Details = () => {
           <div className="buttonRow">
             <Link
               className="downloadButton"
-              to={process.env.PUBLIC_URL + "movix_001.apk"}
+              to={process.env.PUBLIC_URL + "movix_002.apk"}
               target="_blank"
             >
               Download .apk
             </Link>
-            <h6>Latest version: 001</h6>
+            <h6>Latest version: 002</h6>
           </div>
         </article>
         <img
